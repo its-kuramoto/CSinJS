@@ -17,8 +17,8 @@ Stack.prototype.pop = function() {
 
 Stack.prototype.search = function(target) {
   // O(n)
-  console.log(this.stack);
-  return this.stack.filter(function(s) {
+  return this.stack.find(function(s) {
+    console.log(s);
     return s == target;
   })
 }
