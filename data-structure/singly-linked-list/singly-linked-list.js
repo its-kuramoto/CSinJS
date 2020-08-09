@@ -1,36 +1,36 @@
 /**
-* create Node instance.
-* @constructor
-* @param {number} data
-* @return void
+ * create Node instance.
+ * @constructor
+ * @param {number} data
+ * @return void
 */
 function Node(data) {
   /**
-  * @type {string|number} data
-  * @type {string|number} next
+   * @type {string|number} data
+   * @type {string|number} next
   */
   this.data = data;
   this.next = null;
 }
 
 /**
-* create singlyLinkedList instance.
-* @constructor
-* @return void
+ * create singlyLinkedList instance.
+ * @constructor
+ * @return void
 */
 function SinglyLinkedList() {
   /**
-  * @type {Node} head
-  * @type {Node} tail
+   * @type {Node} head
+   * @type {Node} tail
   */
   this.head = null;
   this.tail = null;
 }
 
 /**
-* create singlyLinkedList instance.
-* @param {string|number} data
-* @return void
+ * create singlyLinkedList instance.
+ * @param {string|number} data
+ * @return void
 */
 SinglyLinkedList.prototype.addNode = function(data) {
 
@@ -42,19 +42,19 @@ SinglyLinkedList.prototype.addNode = function(data) {
 
   if(!this.head) {
     this.tail = node;
-	this.head = node;
+	  this.head = node;
   } else {
     this.tail.next = node;
-	this.tail = node;
+	  this.tail = node;
   }
 } 
 
- /**
+/**
  * insert a new node to the list at the specified location.
  * @param {string|numebr} data
  * @param {string|number} toNodeData
  * @return void
- */
+*/
 SinglyLinkedList.prototype.insertAfter = function(data, toNodeData) {
 
   /**
@@ -65,10 +65,14 @@ SinglyLinkedList.prototype.insertAfter = function(data, toNodeData) {
 
   while (current) {
     if (current.data === toNodeData) {
+      /**
+       * new node
+       * @type {Node} node
+      */
       const node = new Node(data)
       if (current === this.tail) {
-          this.tail.next = node;
-      this.tail = node
+        this.tail.next = node;
+        this.tail = node
       } else {
         node.next = current.next
         current.next = node
@@ -94,17 +98,17 @@ SinglyLinkedList.prototype.removeNode = function(data) {
 
   while (current) {
     if (current.data === data) {
-	  if (current === this.head) {
-	    this.head = this.head.next;
+      if (current === this.head) {
+        this.head = this.head.next;
       }
-	  if (current === this.tail) {
-	    this.tail = previous;
-	  }
-	  previous.next = current.next;
-	} else {
-	  previous = current;
-	}
-	current = current.next;
+      if (current === this.tail) {
+        this.tail = previous;
+      }
+      previous.next = current.next;
+    } else {
+      previous = current;
+    }
+    current = current.next;
   }
 }
 
